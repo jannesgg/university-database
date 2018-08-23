@@ -1,0 +1,61 @@
+
+
+Departments (_abbreviation_, name(unique)) ******
+
+Hosts (_dept_abbrev_, _prog_name_)
+	dept_abbrev -> Departments.abbreviation
+	prog_name -> Programmes.name
+
+Programmes (_name_, abbreviation)
+
+Course (_code_, name, credits, dept_abbrev)
+	dept_abbrev -> Departments.abbreviation
+
+Classification (_name_)
+
+Has(_code_, _classification_name_)
+	code -> Course.code
+	classification_name -> Classification.name
+	
+Restricted_Course (_code_, max_students)
+	code -> Course.code
+
+Students (_national_id_, student_id(unique), student_name, _prog_name_)******
+	prog_name -> Programmes.name 	
+
+Branches (_branch_name_, _prog_name_)
+	prog_name -> Programmes.name
+
+Reads (_national_id_, _code_, grade) ******
+	national_id -> Students.national_id
+	code -> Course.code
+
+Registers (_national_id_, _course_code_)
+	national_id -> Students.national_id
+	course_code -> Course.code
+
+Waiting_list (_# in queue_, _course_code_, national_id) ******
+	course_code -> Course.code
+	national_id -> Students.national_id
+
+Picks (_national_id_, br_name, prog_name)  ******
+	(br_name, prog_name) -> Branches(br_name, prog_name)
+	(national_id, prog_name) -> Students.(national_id, prog_name) ******
+
+Pr_Requires (_prog_name_, _code_)
+	prog_name -> Programmes.name
+	code -> Course.code
+
+Pre-requires (_code_req_, _code_preq_)
+	code_req -> Course.code
+	code_preq -> Course.code
+
+Br_Requires (_prog_name_, _branch_name_, _course_code_)
+	(br_name, prog_name) -> Branches(br_name, prog_name)
+	course_name -> Course.code
+
+Br_Recommends (_prog_name_, _branch_name_, _course_code_)
+	(br_name, prog_name) -> Branches(br_name, prog_name)
+	course_name -> Course.code
+
+

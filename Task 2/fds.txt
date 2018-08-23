@@ -1,0 +1,58 @@
+S = {dept_abbrev, dept_name, prog_name, prog_abbrev, course_code, course_name, course_credits, max_students
+national_id, student_id, student_name, course_grade, branch_name, #in_queue}
+
+
+##### student ######
+
+
+national_id -> (student_id, student_name, prog_name, branch_name)
+
+	
+
+########## the above separated to each one of them ###########
+	national_id -> student_id
+	national_id -> student_name
+	national_id -> (programme_name, branch)
+
+
+
+
+
+
+#### course #### 
+
+course_code -> (course_name, credits, department_abbreviation, max_students)
+
+(national_id, course_code) -> grade
+
+(national_id, course_code) -> #in_queue	
+
+(#in_queue, course_code) -> national_id	
+
+########## the above separated to each one of them ###########
+	course_code -> course_name
+	course_code -> credits
+	course_code -> department_abbreviation
+	course_code -> max_students	
+
+
+
+#### programme ####
+programme_name -> programme_abbreviation
+
+
+
+
+#### department ####
+department_name -> department_abbrev
+department_abbrev -> department_name
+
+#### fd’s not included ####
+We don't include both department_name and department_abbrev because of redundancy
+
+
+#### constraint not included in the schema before ####
+
+
+the branch that a student picks belongs to his/her programme
+

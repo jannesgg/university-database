@@ -1,0 +1,40 @@
+student
+
+student_national_id -> student_id
+student_national_id -> student_name
+student_national_id -> (programme_name, branch)
+(student_national_id, course_code) -> course_read?
+(student_national_id, course_code) -> registered_for_course
+student_national_id -> conditions_met_for_graduation
+(student_national_id, course_code) -> grade
+(student_national_id, restricted_course_code) -> #in_queue?
+
+
+course, restricted_course
+
+course_code -> course_name
+course_code -> credits
+course_code -> department_name
+course_code -> department_abbreviation
+course_code -> course_requirements???????????
+restricted_course_code -> max_students
+course_code -> classification?
+
+
+programme
+
+programme_name -> programme_abbreviation
+programme_abbreviation -> programme_name
+
+department
+
+department_name -> department_abbrev
+
+department_abbrev -> department_name
+
+branch_name?
+
+
+We don't include both department_name and department_abbrev because of redundancy
+Cyclic relationship between student programme and branch????????
+

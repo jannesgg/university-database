@@ -1,0 +1,4 @@
+INDEX VERSION 1.130+C:\Users\Jannes\Desktop\GU Modules\Databases\db_home\.metadata\.plugins\org.eclipse.jdt.core
+42610692.index
+1122342289.index
+878720587.index

@@ -1,0 +1,49 @@
+Department (abbreviation, name)
+Hosts (dept_abbrev, prog_name)
+	dept_abbrev -> Department.abbreviation
+	prog_name -> Programme.name
+Programme (name, abbreviation)
+Employee (employee_id, name)
+Works (employee_id, dept_abbrev)
+	dept_abbrev -> Department.abbreviation
+SA (employee_id, dept_abbrev)
+	dept_abbrev -> Department.abbreviation
+Course (course_code, credits)
+Restricted_Course (course_code, max_students)
+	course_code -> Course.course_code
+Student (national_id, student_id, name)
+Branch (prog_name, branch_name)
+	prog_name -> Programme.name
+Belong (student_id, prog_name, year)
+	student_id -> Student.student_id
+	prog_name -> Programme.name 
+Reads (student_id, course_code, result, type)
+	student_id -> Student.student_id
+	course_code -> Course.course_code
+Registers (student_id, course_id)
+	student_id -> Student.student_id
+	course_id -> Course.course_code
+Restrict_registers (student_id, course_id, #queue)
+	student_id -> Student.student_id
+	course_id -> Course.course_code
+Picks (br_name, student_id)
+	br_name -> Branch.name
+	student_id -> Student.student_id
+Branch_students (student_id)
+	student_id -> Student.student_id
+Requires (prog_name, course_code)
+	prog_name -> Programme.name
+	course_code -> Course.course_code
+Pre-requires (course_code_req, course_code_preq)
+	course_code_req -> Course.course_code
+	course_code_preq -> Course.course_code
+Br_Requires (prog_name, branch_name, course_name)
+	prog_name -> Programme.name
+	branch_name -> Branch.name
+	course_name -> Course.course_code
+Br_Recommends (prog_name, branch_name, course_name)
+	prog_name -> Programme.name
+	branch_name -> Branch.name
+	course_name -> Course.course_code
+
+
